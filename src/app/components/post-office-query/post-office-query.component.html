@@ -1,0 +1,27 @@
+<div class="query-form">
+    <form class="query-main-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Введіть обмеження по вазі</mat-label>
+            <input matInput placeholder="Обмеження по вазі" [(ngModel)]="weightLimit" name="weight">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Введіть кількість працівників</mat-label>
+            <input matInput type="number" inputmode="numeric" placeholder="Кількість працівиків" [(ngModel)]="workersCount" name="workers">
+        </mat-form-field>
+
+        <button mat-raised-button
+                color="primary"
+                (click)="makeSelection()">Вибрати</button>
+    </form>
+    <div>
+        <mat-card class="record-card" *ngFor="let record of postOffice">
+            <div><h4>Місто</h4>: {{record.city}} </div>
+            <div><h4>Номер відділеня</h4>: {{record.number}}</div>
+            <div><h4>Адресса відділення</h4>: {{record.address}}</div>
+            <div><h4>Тип офісу</h4>: {{record.officeType}}</div>
+            <div><h4>Ліміт по вазі</h4>: {{record.weightLimit}}</div>
+            <div><h4>Кількість працівників</h4>: {{record.workersCount}}</div>
+        </mat-card>
+    </div>
+</div>

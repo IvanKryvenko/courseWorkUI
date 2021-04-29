@@ -1,0 +1,29 @@
+<div class="query-form">
+    <form class="query-main-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Зарплата</mat-label>
+            <input matInput placeholder="Зарплата" [(ngModel)]="salary" name="salary">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Дата початку роботи</mat-label>
+            <input matInput type="date" inputmode="numeric" placeholder="Дата початку роботи" [(ngModel)]="workStartDate" name="startDate">
+        </mat-form-field>
+
+        <button mat-raised-button
+                color="primary"
+                (click)="makeSelection()">Вибрати</button>
+    </form>
+    <div>
+        <mat-card class="record-card" *ngFor="let record of employee">
+            <div><h4>ПІБ працівника</h4>: {{record.employeeName}} </div>
+            <div><h4>Дата народження працівника</h4>: {{record.birthDate}}</div>
+            <div><h4>Досвід працівника</h4>: {{record.workExperience}}</div>
+            <div><h4>Посада працівника</h4>: {{record.employeePosition}}</div>
+            <div><h4>Телефонний номер працівника</h4>: {{record.phoneNumber}}</div>
+            <div><h4>Поштове відділення</h4>: {{record.postOffice}}</div>
+            <div><h4>Початок роботи</h4>: {{record.workStartDate}}</div>
+            <div><h4>Зарплата працівника</h4>: {{record.salary}}</div>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="query-form">
+    <form class="query-main-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Час доставки</mat-label>
+            <input matInput placeholder="Час доставки" [(ngModel)]="deliveryTime" name="time">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Тип відправлення</mat-label>
+            <input matInput inputmode="numeric" placeholder="Тип відправлення" [(ngModel)]="deliveryType" name="type">
+        </mat-form-field>
+
+        <button mat-raised-button
+                color="primary"
+                (click)="makeSelection()">Вибрати</button>
+    </form>
+    <div>
+        <mat-card class="record-card" *ngFor="let record of delivery">
+            <div><h4>Номер накладної</h4>: {{record.deliveryNumber}} </div>
+            <div><h4>Відправник</h4>: {{record.sender}}</div>
+            <div><h4>Отримувач</h4>: {{record.receiver}}</div>
+            <div><h4>Відділення відправника</h4>: {{record.senderPostOffice}}</div>
+            <div><h4>Відділення отримувача</h4>: {{record.receiverPostOffive}}</div>
+            <div><h4>Час відправлення</h4>: {{record.sendTime}}</div>
+            <div><h4>Час доставки</h4>: {{record.deliveryTime}}</div>
+            <div><h4>Тип товару</h4>: {{record.goodType}}</div>
+            <div><h4>Тип відправлення</h4>: {{record.deliveryType}}</div>
+        </mat-card>
+    </div>
+</div>

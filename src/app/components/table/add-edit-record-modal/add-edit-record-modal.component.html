@@ -12,5 +12,6 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Вийти</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="updateRecord()">Прийняти</button>
+  <button *ngIf="data.type" mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="updateRecord()">Прийняти</button>
+  <button *ngIf="!data.type" mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="addRecord()">Додати</button>
 </mat-dialog-actions>

@@ -7,6 +7,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
     exports: [
@@ -15,7 +16,8 @@ import { MatInputModule } from '@angular/material/input';
         MatTableModule,
         MatIconModule,
         MatDialogModule,
-        MatInputModule
+        MatInputModule,
+        MatTabsModule
     ],
     imports: [],
     providers: [

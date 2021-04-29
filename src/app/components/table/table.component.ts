@@ -10,6 +10,7 @@ import { Transport } from 'src/app/models/transport.model';
 import { Posting } from 'src/app/models/posting.model';
 import { Service } from 'src/app/models/service.model';
 import { PostOffice } from 'src/app/models/postOffice.nodel';
+import { AddEditRecordService } from 'src/app/services/addEditService/add-edit-record.service';
 
 interface Table {
   query: string;
@@ -43,18 +44,52 @@ export class TableComponent implements OnInit {
   ];
 
   constructor(public tableService: GetTableService,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private updateService: AddEditRecordService) { }
 
   ngOnInit(): void {
   }
 
-  editRecord(tableType: string, record: any): any {
+  editRecord(tableType: string, record: any, type: any): any {
+    const dialogRef = this.dialog.open(AddEditRecordModalComponent, {
+      data: {
+        tableType,
+        record,
+        type: 'edit'
+      }
+    });
+    // tslint:disable-next-line: deprecation
+    dialogRef.afterClosed().subscribe(data => {
+      this.fetchData(this.selectedValue);
+    });
+  }
+
+  deleteRecord(tableType: string, record: any): any {
+    // tslint:disable-next-line: deprecation
+    this.updateService.deleteRecord(tableType, record).subscribe(() => {
+      console.log('deleted');
+      this.fetchData(this.selectedValue);
+    });
+  }
+
+  addRecord(tableType: string): any {
+    const keys = this.defineKeys(this.sourceData);
+    const record = this.sourceData[0];
+    // tslint:disable-next-line: prefer-const
+    // tslint:disable-next-line: forin
+    for (let key in record) {
+      record[key] = '';
+    }
+
+    console.log(record);
+
     const dialogRef = this.dialog.open(AddEditRecordModalComponent, {
       data: {
         tableType,
         record
       }
     });
+
     // tslint:disable-next-line: deprecation
     dialogRef.afterClosed().subscribe(data => {
       this.fetchData(this.selectedValue);

@@ -13,6 +13,10 @@
         <button mat-raised-button
                 color="primary"
                 (click)="getTable(selectedValue)">Отримати таблицю</button>
+        <button *ngIf="displayTable"
+                mat-raised-button
+                color="primary"
+                (click)="addRecord(selectedValue)">Добавити запис</button>
     </div>
     <div class="table">
         <table *ngIf="displayTable" 
@@ -28,8 +32,8 @@
                 <th mat-header-cel
                     *matHeaderCellDef> Дії </th>
                 <td mat-cell *matCellDef="let element"> 
-                    <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="editRecord(selectedValue, element)">edit</mat-icon>    
-                    <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon>    
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="editRecord(selectedValue, element, edit)">edit</mat-icon>    
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="deleteRecord(selectedValue, element)">delete</mat-icon>    
                 </td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="coloumnsDef"></tr>

@@ -1,0 +1,27 @@
+<div class="query-form">
+    <form class="query-main-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Кількість відправлень</mat-label>
+            <input matInput type="number" placeholder="Кількість відправлень" [(ngModel)]="deliveryCount" name="deliveriesCount">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Вік</mat-label>
+            <input matInput type="number" inputmode="numeric" placeholder="Вік" [(ngModel)]="age" name="age">
+        </mat-form-field>
+
+        <button mat-raised-button
+                color="primary"
+                (click)="makeSelection()">Вибрати</button>
+    </form>
+    <div>
+        <mat-card class="record-card" *ngFor="let record of client">
+            <div><h4>ПІБ клієнта</h4>: {{record.clientName}} </div>
+            <div><h4>Телефонний номер</h4>: {{record.phoneNumber}}</div>
+            <div><h4>Пошта</h4>: {{record.email}}</div>
+            <div><h4>Вік</h4>: {{record.age}}</div>
+            <div><h4>Кількість відправлень</h4>: {{record.deliveryCount}}</div>
+            <div><h4>Місто</h4>: {{record.city}}</div>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="query-form">
+    <form class="query-main-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Працівник, що видав</mat-label>
+            <input matInput placeholder="Ціна послуги" [(ngModel)]="employee" name="employee">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Офіс де було видано</mat-label>
+            <input matInput inputmode="numeric" placeholder="Рейтинг послуги" [(ngModel)]="office" name="office">
+        </mat-form-field>
+
+        <button mat-raised-button
+                color="primary"
+                (click)="makeSelection()">Вибрати</button>
+    </form>
+    <div>
+        <mat-card class="record-card" *ngFor="let record of response">
+            <div><h4>Номер накладної</h4>: {{record.deliveryNumber}} </div>
+            <div><h4>Тип оплати</h4>: {{record.payment}}</div>
+        </mat-card>
+    </div>
+</div>

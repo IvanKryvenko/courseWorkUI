@@ -1,0 +1,27 @@
+<div class="query-form">
+    <form class="query-main-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Рік виробництва</mat-label>
+            <input matInput type="date" placeholder="Рік виробництва" [(ngModel)]="releaseDate" name="releaseDate">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Місткість</mat-label>
+            <input matInput placeholder="Місткість" [(ngModel)]="capacity" name="capacity">
+        </mat-form-field>
+
+        <button mat-raised-button
+                color="primary"
+                (click)="makeSelection()">Вибрати</button>
+    </form>
+    <div>
+        <mat-card class="record-card" *ngFor="let record of transport">
+            <div><h4>Марка т/з</h4>: {{record.mark}} </div>
+            <div><h4>Номерний знак</h4>: {{record.licensePlateNumber}}</div>
+            <div><h4>ПІБ водія</h4>: {{record.driverName}}</div>
+            <div><h4>Тип т/з</h4>: {{record.transportType}}</div>
+            <div><h4>Рік випуску</h4>: {{record.releaseDate}}</div>
+            <div><h4>Місткість</h4>: {{record.capacity}}</div>
+        </mat-card>
+    </div>
+</div>

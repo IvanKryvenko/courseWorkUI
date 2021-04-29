@@ -1,0 +1,27 @@
+<div class="query-form">
+    <form class="query-main-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Кількість населення</mat-label>
+            <input matInput type="number" placeholder="Кількість населення" [(ngModel)]="popularity" name="populaity">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Кількість поштових відділень</mat-label>
+            <input matInput type="number" inputmode="numeric" placeholder="Кількість поштових відділень" [(ngModel)]="postOfficesCount" name="offices">
+        </mat-form-field>
+
+        <button mat-raised-button
+                color="primary"
+                (click)="makeSelection()">Вибрати</button>
+    </form>
+    <div>
+        <mat-card class="record-card" *ngFor="let record of city">
+            <div><h4>Назва міста</h4>: {{record.cityName}} </div>
+            <div><h4>Країна</h4>: {{record.country}}</div>
+            <div><h4>Площа</h4>: {{record.square}}</div>
+            <div><h4>Рівень інфраструктури</h4>: {{record.infrastructureLevel}}</div>
+            <div><h4>Населення</h4>: {{record.popularity}}</div>
+            <div><h4>Кількість поштових відділень</h4>: {{record.postOfficesCount}}</div>
+        </mat-card>
+    </div>
+</div>

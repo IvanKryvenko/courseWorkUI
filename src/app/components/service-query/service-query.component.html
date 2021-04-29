@@ -1,0 +1,26 @@
+<div class="query-form">
+    <form class="query-main-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Ціна послуги</mat-label>
+            <input matInput placeholder="Ціна послуги" [(ngModel)]="servicePrice" name="price">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Рейтинг послуги</mat-label>
+            <input matInput inputmode="numeric" placeholder="Рейтинг послуги" [(ngModel)]="serviceRating" name="rating">
+        </mat-form-field>
+
+        <button mat-raised-button
+                color="primary"
+                (click)="makeSelection()">Вибрати</button>
+    </form>
+    <div>
+        <mat-card class="record-card" *ngFor="let record of service">
+            <div><h4>Назва послуги</h4>: {{record.serviceName}} </div>
+            <div><h4>Замовник послуги</h4>: {{record.serviceCustomer}}</div>
+            <div><h4>Тип оплати</h4>: {{record.paymentType}}</div>
+            <div><h4>Ціна послуги</h4>: {{record.servicePrice}}</div>
+            <div><h4>Рейтинг послуги</h4>: {{record.serviceRating}}</div>
+        </mat-card>
+    </div>
+</div>
